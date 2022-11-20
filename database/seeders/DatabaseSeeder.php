@@ -2,10 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Position;
 use App\Models\Role;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Position;
 use Illuminate\Database\Seeder;
+use Database\Seeders\RoleSeeder;
+use Database\Seeders\PositionSeeder;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {

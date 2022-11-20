@@ -2,19 +2,23 @@
 
 namespace App\Models;
 
+use App\Models\Role;
+use App\Models\Position;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
 
-    const ADMIN_ROLE_ID = 1;
-    const OPERATOR_ROLE_ID = 2;
-    const USER_ROLE_ID = 3;
+    public const ADMIN_ROLE_ID = 1;
+    public const OPERATOR_ROLE_ID = 2;
+    public const USER_ROLE_ID = 3;
 
     /**
      * The attributes that are mass assignable.

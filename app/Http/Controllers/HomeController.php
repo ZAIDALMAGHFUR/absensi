@@ -120,15 +120,17 @@ class HomeController extends Controller
         $code = request('code');
         $attendance = Attendance::query()->where('code', $code)->first();
 
-        if (!$attendance)
+        if (!$attendance) {
             return response()->json([
                 "success" => false,
                 "message" => "Terjadi masalah pada saat melakukan absensi."
             ], 400);
+        }
 
         // jika absensi sudah jam pulang (is_end) dan tidak menggunakan qrcode (kebalikan)
-        if (!$attendance->data->is_end && !$attendance->data->is_using_qrcode) // sama (harus) dengan view
+        if (!$attendance->data->is_end && !$attendance->data->is_using_qrcode) { // sama (harus) dengan view
             return false;
+        }
 
         $presence = Presence::query()
             ->where('user_id', auth()->user()->id)
@@ -137,11 +139,12 @@ class HomeController extends Controller
             ->where('presence_out_time', null)
             ->first();
 
-        if (!$presence) // hanya untuk sekedar keamanan (kemungkinan)
+        if (!$presence) { // hanya untuk sekedar keamanan (kemungkinan)
             return response()->json([
                 "success" => false,
                 "message" => "Terjadi masalah pada saat melakukan absensi."
             ], 400);
+        }
 
         // untuk refresh if statement
         $this->data['is_not_out_yet'] = false;

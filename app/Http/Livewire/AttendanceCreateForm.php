@@ -3,7 +3,8 @@
 namespace App\Http\Livewire;
 
 use App\Models\Attendance;
-use \Illuminate\Support\Str;
+use Illuminate\Support\Str;
+use App\Http\Livewire\AttendanceAbstract;
 
 class AttendanceCreateForm extends AttendanceAbstract
 {
@@ -18,8 +19,9 @@ class AttendanceCreateForm extends AttendanceAbstract
 
         $this->validate();
 
-        if (array_key_exists("code", $this->attendance) && $this->attendance['code']) // jika menggunakan qrcode
+        if (array_key_exists("code", $this->attendance) && $this->attendance['code']) { // jika menggunakan qrcode
             $this->attendance['code'] = Str::random();
+        }
 
         $attendance = Attendance::create($this->attendance);
         $attendance->positions()->attach($position_ids);

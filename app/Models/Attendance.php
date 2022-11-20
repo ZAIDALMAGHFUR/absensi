@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
 use DateTime;
+use Carbon\Carbon;
+use App\Models\Holiday;
+use App\Models\Position;
+use App\Models\Presence;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Date;
+use Illuminate\Database\Eloquent\Model;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Date;
-use Illuminate\Support\Facades\URL;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class Attendance extends Model
 {

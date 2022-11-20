@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Attendance;
 use Illuminate\Support\Str;
+use App\Http\Livewire\AttendanceAbstract;
 
 class AttendanceEditForm extends AttendanceAbstract
 {
