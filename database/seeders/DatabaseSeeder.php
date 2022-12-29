@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PositionSeeder::class);
 
         \App\Models\User::factory()->create([
-            'name' => 'Muhammad Pauzi (Admin)',
+            'name' => 'Zaid al maghfur (Admin)',
             'email' => 'admin@gmail.com',
             'role_id' => Role::where('name', 'admin')->first('id'),
             'position_id' => Position::where('name', 'Operator')->first('id'),
