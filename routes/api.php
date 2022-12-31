@@ -1,10 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\API_EmployeeController;
-use App\Http\Controllers\Api\PermissionController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\Api\AttendanceController;
+use App\Http\Controllers\Api\PermissionController;
+use App\Http\Controllers\Api\API_EmployeeController;
 
 
 /*
@@ -23,7 +24,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('permissions/detail', [PermissionController::class, 'show'])->name('api.permissions.show');
-Route::get('api-employeeController', [API_EmployeeController::class, 'index'])->name('api.attendances.index');
-Route::get('api-employeeController-create', [API_EmployeeController::class, 'create'])->name('api.attendances.create');
+// Route::get('api-employeeController', [API_EmployeeController::class, 'index'])->name('api.attendances.index');
+Route::post('api-employeeController-create', [API_EmployeeController::class, 'create'])->name('api.employeeController.create');
+Route::put('api-employeeController-edit/{id}', [API_EmployeeController::class, 'edit'])->name('api.employeeController.edit');
+Route::delete('api-employeeController-delete/{id}', [API_EmployeeController::class, 'delete'])->name('api.employeeController.delete');
 Route::post('AttendanceController-create', [AttendanceController::class, 'create'])->name('AttendanceController.create');
-Route::put('edit/{id}', [AttendanceController::class, 'edit'])->name('AttendanceController.edit');
+Route::put('AttendanceController-edit/{id}', [AttendanceController::class, 'edit'])->name('AttendanceController.edit');
