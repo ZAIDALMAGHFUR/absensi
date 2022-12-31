@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\Holiday;
 use App\Models\Position;
 use App\Models\Presence;
+use App\Models\AttendancesPosition;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Database\Eloquent\Model;
@@ -76,4 +77,9 @@ class Attendance extends Model
     {
         return $this->hasMany(Presence::class);
     }
+
+    public function izinposisi(){
+        return $this->hasMany(AttendancesPosition::class);
+    }
+
 }

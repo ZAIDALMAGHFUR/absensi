@@ -30,6 +30,17 @@ class AttendanceController extends Controller
             'code' => $request->code,
             
         ]);
+
+            $array = [];
+            foreach((array)$request->position_ids as $key => $value) {
+                $array[] = [
+                    'attendance_id' => $attendances->id,
+                    'position_id' => $value
+                ];
+            }
+                
+            $attendances->izinposisi()->insert($array);
+
         // return response()->json($request->all());
         return response()->json([
             'status' => 'success',

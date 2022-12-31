@@ -37,6 +37,7 @@ Route::post('AttendanceController-create', [AttendanceController::class, 'create
 Route::put('AttendanceController-edit/{id}', [AttendanceController::class, 'edit'])->name('AttendanceController.edit');
 
 //membuat data position dengan api
+Route::get('PositionController', [PositionController::class, 'get'])->name('PositionController.get');
 Route::post('PositionController-create', [PositionController::class, 'create'])->name('PositionController.create');
 Route::put('PositionController-edit/{id}', [PositionController::class, 'edit'])->name('PositionController.edit');
 Route::delete('PositionController-delete/{id}', [PositionController::class, 'delete'])->name('PositionController.delete');
